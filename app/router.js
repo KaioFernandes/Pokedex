@@ -10,6 +10,8 @@ router.get('/', mainController.homePage);
 router.get('/pokemon/:id', mainController.pokemonPage);
 router.get('/type', mainController.typePage);
 router.get('/type/:id', mainController.pokemonTypePage);
+router.get('/region', mainController.regionPage); 
+router.get('/region/:id', mainController.pokemonRegionPage);
 
 router.use(mainController.notFound);
 

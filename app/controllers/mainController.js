@@ -59,6 +59,32 @@ module.exports = {
         });
     },
 
+    regionPage: (request, response, next) => {
+
+        dataMapper.getAllRegion((error, regionList) => {
+            if (error) {
+                response.status(500).render('error', { error: 500, message: 'Une erreur est survenue, merci de réessayer ultérieurement' });
+                return;
+            }
+
+            response.render('region', { regionList });
+        });
+    },
+
+    pokemonRegionPage: (request, response, next) => {
+
+        const id = Number(request.params.id);
+
+        dataMapper.getPokemonsByRegion(id, (error, pokemonList) => {
+            if (error) {
+                response.status(500).render('error', { error: 500, message: 'Une erreur est survenue, merci de réessayer ultérieurement' });
+                return;
+            }
+
+            response.render('list', { pokemonList });
+        });
+    },
+
     notFound: (_, response) => {
         response.status(404).render('error', {error: 404, message: 'Game over !!'});
     }
