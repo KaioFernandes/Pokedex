@@ -1,0 +1,11 @@
+<%- include('partials/header') %>
+<ul class="type-list reset-list row">
+    <% for(const legendaires of legendairesList) { %>
+        <li class="p-3 col-lg-4">
+            <a href="/legendaires/<%=legendaires.id%>" class="p-3" style="background-color: #<%=legendaires.color%>">
+               #<%=legendaires.name%>
+            </a>
+        </li>
+    <% } %>
+</ul>
+<%- include('partials/footer') %>

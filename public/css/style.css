@@ -56,6 +56,10 @@ header a, header a:hover {
     width:100%;
 }
 
+.p-3{
+    font-size:2rem!important;
+}
+
 /* POKEMON LIST */
 
 .pokemon-list a{

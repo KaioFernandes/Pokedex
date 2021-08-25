@@ -875,3 +875,51 @@ INSERT INTO "pokemon_region" ("id", "pokemon_numero", "region_id") VALUES
 (2237, 393, 4),
 (2238, 394, 4),
 (2239, 395, 4);
+
+
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table 'legendaires'
+--
+
+DROP TABLE IF EXISTS "legendaires";
+
+CREATE TABLE "legendaires" (
+  "id" int NOT NULL,
+  "name" varchar(255) NOT NULL,
+  "color" varchar(6) NOT NULL
+);
+
+--
+-- Contenu de la table "legendaires"
+--
+
+INSERT INTO "legendaires" ("id", "name", "color") VALUES
+(1, 'legendaires', 'F8D201');
+
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table 'pokemon_legendaires'
+--
+DROP TABLE IF EXISTS "pokemon_legendaires";
+
+CREATE TABLE "pokemon_legendaires" (
+  "id" int NOT NULL,
+  "pokemon_numero" int NOT NULL,
+  "legendaires_id" int NOT NULL
+);
+
+--
+-- Contenu de la table 'pokemon_legendaires'
+--
+
+INSERT INTO "pokemon_legendaires" ("id", "pokemon_numero", "legendaires_id") VALUES
+(5001, 144, 1),
+(5002, 145, 1),
+(5003, 146, 1),
+(5004, 150, 1),
+(5005, 151, 1);

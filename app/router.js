@@ -12,6 +12,8 @@ router.get('/type', mainController.typePage);
 router.get('/type/:id', mainController.pokemonTypePage);
 router.get('/region', mainController.regionPage); 
 router.get('/region/:id', mainController.pokemonRegionPage);
+router.get('/legendaires', mainController.legendairesPage); 
+router.get('/legendaires/:id', mainController.pokemonLegendairesPage);
 
 router.use(mainController.notFound);
 

@@ -158,7 +158,54 @@ module.exports = {
             callback(error, result.rows);
         });
 
+    },
+
+    getAllLegendaires: (callback) => {
+
+        client.query(`SELECT * FROM "legendaires"`, (error, result) => {
+
+            if (error) {
+                console.trace(error);
+            }
+
+            let data = [];
+            if (result) {
+                data = result.rows;
+            }
+
+            callback(error, data);
+
+        });
+
+    },
+
+
+    getPokemonsByLegendaires: (id, callback) => {
+
+        const query = {
+            text: `
+                SELECT 
+                    "pokemon".*
+                
+                FROM "pokemon"
+
+                JOIN "pokemon_legendaires" ON "pokemon_legendaires"."pokemon_numero" = "pokemon"."numero"
+
+                WHERE "pokemon_legendaires"."legendaires_id" = $1`,
+            values: [id]
+        };
+
+        client.query(query, (error, result) => {
+
+            if (error) {
+                console.trace(error);
+            }
+
+            callback(error, result.rows);
+        });
+
     }
+
 
 
 };
