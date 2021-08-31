@@ -113,6 +113,52 @@ module.exports = {
             callback(error, result.rows);
         });
 
+    },
+    getAllRegion: (callback) => {
+
+        client.query(`SELECT * FROM "region"`, (error, result) => {
+
+            if (error) {
+                console.trace(error);
+            }
+
+            let data = [];
+            if (result) {
+                data = result.rows;
+            }
+
+            callback(error, data);
+
+        });
+
+    },
+
+
+    getPokemonsByRegion: (id, callback) => {
+
+        const query = {
+            text: `
+                SELECT 
+                    "pokemon".*
+                
+                FROM "pokemon"
+
+                JOIN "pokemon_region" ON "pokemon_region"."pokemon_numero" = "pokemon"."numero"
+
+                WHERE "pokemon_region"."region_id" = $1`,
+            values: [id]
+        };
+
+        client.query(query, (error, result) => {
+
+            if (error) {
+                console.trace(error);
+            }
+
+            callback(error, result.rows);
+        });
+
     }
+
 
 };

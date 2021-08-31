@@ -1,0 +1,14 @@
+<%- include('partials/header') %>
+<ul class="type-list reset-list row">
+    <% for(const region of regionList) { %>
+    <li class="p-3 col-lg-4">
+        <a href="/region/<%=region.id%>" class="p-3" style="background-color: #<%=region.color%>">
+            <figure class="p-3">
+                <img src="/img/<%=region.name%>.png">
+                <figcaption>#<%=region.name%></figcaption>
+            </figure>
+        </a>
+    </li>
+    <% } %>
+</ul>
+<%- include('partials/footer') %>
